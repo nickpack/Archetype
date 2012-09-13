@@ -2,15 +2,15 @@
  * Archetype Framework             *
  * Copyright (C) 2012 Nick Pack    *
  * * * * * * * * * * * * * * * * * */
- 
+
 @import "../3rdparty/normalise/_normalize.scss";
 @import "../3rdparty/semantic.gs/stylesheets/scss/grid.scss";
+@import "variables";
 @import "typography";
 @import "buttons";
 @import "forms";
 @import "images";
 @import "navigation";
-@import "variables";
 
 ///////////////////////
 // Build Grid Styles //

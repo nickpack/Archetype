@@ -1,0 +1,99 @@
+//////////////////
+// Typography   //
+//////////////////
+
+
+// Body copy
+p {
+  margin: 0 0 $line-height-base/2;
+}
+
+small {
+  font-size: 85%;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin: ($line-height-base / 2) 0;
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+  line-height: 1;
+  text-rendering: optimizelegibility;
+}
+
+h1 { 
+  font-size: $heading-h1-size; 
+  line-height: $heading-h1-line-height; 
+}
+
+h2 { 
+  font-size: $heading-h1-size * 0.85; 
+  line-height: $heading-h1-line-height; 
+}
+
+h3 { 
+  font-size: $heading-h1-size * 0.68; 
+  line-height: 40px; 
+}
+
+h4 { 
+  font-size: $heading-h1-size * 0.5; 
+  line-height: $heading-h1-line-height / 2; 
+}
+
+h5 { 
+  font-size: $heading-h1-size * 0.4; 
+  line-height: $heading-h1-line-height / 2; 
+}
+
+h6 { 
+  font-size: $heading-h1-size * 0.35clear; 
+  line-height: $heading-h1-line-height / 2; 
+}
+
+// Unordered and Ordered lists
+ul, ol {
+  padding: 0;
+  margin: 0 0 $line-height-base / 2 25px;
+}
+
+li {
+  line-height: $line-height-base;
+}
+
+// Definition Lists
+dl {
+  margin-bottom: $line-height-base;
+}
+
+dd {
+  margin-left: $line-height-base / 2;
+}
+
+dt, dd {
+  line-height: $line-height-base;
+}
+
+dt {
+  font-weight: bold;
+}
+
+
+// Blockquotes
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 $line-height-base;
+  small {
+    display: block;
+    line-height: $line-height-base;
+    &:before {
+      content: '\2014 \00A0';
+    }
+  }
+}
+
+// Addresses
+address {
+  margin-bottom: $line-height-base;
+  line-height: $line-height-base;
+}

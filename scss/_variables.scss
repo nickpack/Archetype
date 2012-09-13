@@ -9,3 +9,22 @@ $gutter-width: 20;
 
 // Remove the definition below for a pixel-based layout
 $total-width: 100%;
+
+//////////////////
+// Typography   //
+//////////////////
+$font-size-base: 14px;
+$line-height-base: 20px;
+
+$heading-font-family: Helvetica, sans-serif;
+$heading-font-weight: bold;
+$heading-h1-colour: #333333;
+$heading-h2-colour: $heading-h1-colour  * 2;
+$heading-h3-colour: $heading-h2-colour  * 2;
+$heading-h4-colour: $heading-h3-colour  * 2;
+$heading-h5-colour: $heading-h4-colour;
+$heading-h6-colour: $heading-h4-colour;
+$heading-h1-size: 36px;
+$heading-h1-line-height: 40px; 
+
+$body-font-family: Helvetica, sans-serif;
