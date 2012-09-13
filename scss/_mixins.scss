@@ -1,0 +1,19 @@
+// Deep down we are all lazy bastards right?
+
+@mixin col-count($colCount, $colSpacing) {
+  column-count: $colCount;
+  column-gap: $colSpacing;
+  -webkit-column-count: $colCount;
+  -webkit-column-gap: $colSpacing;
+  -moz-column-count: $colCount;
+  -moz-column-gap: $colSpacing;
+}
+
+@mixin size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin square($size) {
+  @include size($size, $size);
+}

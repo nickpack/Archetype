@@ -5,12 +5,18 @@
 
 @import "../3rdparty/normalise/_normalize.scss";
 @import "../3rdparty/semantic.gs/stylesheets/scss/grid.scss";
+// Order is important, make sure mixins and variables are availble before UI elements.
+@import "mixins";
 @import "variables";
+////////////////////////////////////
+@import "misc";
 @import "typography";
 @import "buttons";
 @import "forms";
 @import "images";
 @import "navigation";
+////////////////////////////////////
+// Customise from here
 
 ///////////////////////
 // Build Grid Styles //
@@ -21,5 +27,6 @@ $grid-column: $columns;
     .col-#{$grid-column} { 
         @include column($grid-column);
     }
+    
     $grid-column: $grid-column - 1;    
 }
