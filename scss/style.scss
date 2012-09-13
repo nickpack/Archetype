@@ -1,7 +1,25 @@
-@import "../3rdparty/normalise/normalize.css";
+/* * * * * * * * * * * * * * * * * *
+ * Archetype Framework             *
+ * Copyright (C) 2012 Nick Pack    *
+ * * * * * * * * * * * * * * * * * */
+ 
+@import "../3rdparty/normalise/_normalize.scss";
 @import "../3rdparty/semantic.gs/stylesheets/scss/grid.scss";
 @import "typography";
-@import "buttons.scss";
+@import "buttons";
 @import "forms";
 @import "images";
 @import "navigation";
+@import "variables";
+
+///////////////////////
+// Build Grid Styles //
+///////////////////////
+$grid-column: $columns;
+
+@while $grid-column > 0 {
+    .col-#{$grid-column} { 
+        @include column($grid-column);
+    }
+    $grid-column: $grid-column - 1;    
+}

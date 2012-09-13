@@ -1,6 +1,6 @@
 [submodule "3rdparty/normalise"]
 	path = 3rdparty/normalise
-	url = git://github.com/necolas/normalize.css.git
+	url = git://github.com/nickpack/normalize.css.git
 [submodule "3rdparty/semantic.gs"]
 	path = 3rdparty/semantic.gs
 	url = git://github.com/twigkit/semantic.gs.git
