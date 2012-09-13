@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Archetype" default="build">
+    <property name="build.dir" value="./build" />
+    <property name="out.dir" value="./build/out" />
+    <property name="source.dir" value="./" />
+    
+    <target name="build"
+            depends="prepare,scss,csslint,minifycss,jslint,mergeminifyjs"/>
+
+    <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${basedir}/build/logs"/>
+        <delete dir="${basedir}/build/out"/>
+    </target>
+
+    <target name="prepare" depends="clean" description="Prepare for build">
+        <mkdir dir="${basedir}/build/logs"/>
+        <mkdir dir="${basedir}/build/out"/>
+        <mkdir dir="${basedir}/build/out/css"/>
+        <mkdir dir="${basedir}/build/out/js"/>
+    </target>
+    
+    <target name="scss" description="Compile CSS">
+        <echo message="Compiling CSS..."/>
+        <exec executable="sass" output="${out.dir}/css/style.css">
+          <arg line="scss/style.scss" />
+        </exec>
+    </target>
+
+    <target name="csslint" description="Run the CSSLint tool on CSS files">
+        <echo message="Passing style.css through CSSLint..."/>
+        <fileset dir="${out.dir}" id="cssfiles.raw">
+          <include name="**/*.css" />
+        </fileset>
+        <pathconvert pathsep=" " property="cssfiles.clean" refid="cssfiles.raw" />
+        <exec executable="csslint" output="${build.dir}/logs/csslint.xml">
+          <arg line="--rules=errors --format=lint-xml ${cssfiles.clean}" />
+        </exec>
+    </target>
+
+    <target name="jslint" description="Run the JSLint tool on JS files">
+      <echo message="Running JS Lint over all JS files..."/>
+      <fileset dir="${source.dir}" id="jsfiles.raw">
+        <include name="**/*.js" />
+        <exclude name="**/*.min.js" />
+      </fileset>
+      <pathconvert pathsep=" " property="jsfiles.clean" refid="jsfiles.raw" />
+      <exec executable="java" output="build/logs/jslint.xml">
+        <arg line="-jar ./build/jslint4java.jar --report xml ${jsfiles.clean}" />
+      </exec>
+    </target>
+
+    <target name="mergeminifyjs" description="Merge and Minify JS files">
+        <echo message="Merging and Minifying JS..."/>
+        <concat destfile="${out.dir}/js/archetype.js" force="yes">
+            <fileset dir="${source.dir}" id="jsfiles.raw">
+                <include name="**/*.js" />
+                <exclude name="**/*.min.js" />
+            </fileset>
+        </concat>
+        <exec executable="yuicompressor">
+            <arg line="-o ${out.dir}/js/archetype.min.js ${out.dir}/js/archetype.js" />
+        </exec>
+    </target>
+
+    <target name="minifycss" description="Minify CSS">
+        <echo message="Merging and Minifying CSS..."/>
+        <exec executable="yuicompressor">
+            <arg line="-o ${out.dir}/css/style.min.css ${out.dir}/css/style.css" />
+        </exec>
+    </target>
+
+</project>
