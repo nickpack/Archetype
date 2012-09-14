@@ -27,6 +27,13 @@ $grid-column: $columns;
     .col-#{$grid-column} { 
         @include column($grid-column);
     }
-    
+
     $grid-column: $grid-column - 1;    
+}
+
+.full-row {
+    display: block;
+    clear: both;
+    width: $total_width + $gutter-width;
+    @include clearfix();
 }

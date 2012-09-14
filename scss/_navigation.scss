@@ -1,0 +1,13 @@
+//////////////////
+// Typography   //
+//////////////////
+
+nav {
+  margin-left: 0;
+  margin-bottom: $line-height-base;
+  list-style: none;
+}
+
+nav > li > a {
+  display: block;
+}

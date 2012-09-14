@@ -81,7 +81,6 @@
   -moz-box-sizing: $boxsize;
 }
 
-
 @mixin horizontal-gradient($startColour, $endColour) {
   background-color: $endColour;
   background-image: linear-gradient(to right, $startColour, $endColour);
